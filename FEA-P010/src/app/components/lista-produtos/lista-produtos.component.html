@@ -1,0 +1,21 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Produtos</mat-card-title>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+        <table class="table table-borderless">
+            <thead></thead>
+            <tbody>
+                <tr *ngFor="let item of listaProdutos">
+                    <td><img src="{{item.imgURL}}"></td>
+                    <td>{{item.name}}</td>
+                    <td>R${{item.price | number: '1.2-2'}}</td>
+                    <td>
+                        <button mat-mini-fab color="primary" (click)="adicionarItemAoCarrinho(item)"><mat-icon>add_shopping_cart</mat-icon></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>
