@@ -1,0 +1,25 @@
+<ul class="task-list">
+    <li *ngFor="let tarefa of tarefas; let i = index" class="task-item">
+      {{ tarefa.descricao }}
+      <button (click)="removeTarefa(tarefa.id)" class="remove-button">Remover</button>
+      <button (click)="selecionarIndexTarefa(i)" class="update-button" data-bs-toggle="modal" data-bs-target="#updateModal">Atualizar</button>
+    </li>
+</ul>
+
+<div class="modal fade" id="updateModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Atualizar Tarefa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" placeholder="Título da tarefa" class="task-field" [(ngModel)]="nomeTarefa">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="remove-button" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="update-button" data-bs-dismiss="modal" (click)="atualizarTarefa()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
