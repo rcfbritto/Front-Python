@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Carrinho de compras</mat-card-title>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+        <table class="table table-borderless">
+            <thead></thead>
+            <tbody>
+                <tr *ngFor="let item of listaItens()">
+                    <td><img src="{{item.imgURL}}"></td>
+                    <td>{{item.name}}</td>
+                    <td>R${{item.price | number: '1.2-2'}}</td>
+                    <td>
+                        <button mat-mini-fab color="primary" (click)="removerItemDoCarrinho(item)"><mat-icon>remove_shopping_cart</mat-icon></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h3>Total: R${{precoTotal() | number: '1.2-2'}}</h3>
+    </mat-card-content>
+</mat-card>
